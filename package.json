@@ -1,0 +1,37 @@
+{
+  "name": "tree-sitter-todotxt",
+  "version": "1.0.0",
+  "description": "A Tree Sitter Parser for todo.txt file format",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biozz/tree-sitter-todotxt.git"
+  },
+  "author": "Ivan Elfimov <ielfimov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/biozz/tree-sitter-todotxt/issues"
+  },
+  "homepage": "https://github.com/biozz/tree-sitter-todotxt#readme",
+  "dependencies": {
+    "nan": "^2.15.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "tree-sitter-cli": "^0.20.4"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.text",
+      "file-types": [
+        "text"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ]
+    }
+  ]
+}

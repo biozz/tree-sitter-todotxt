@@ -1,0 +1,98 @@
+=====================================
+Simple task
+=====================================
+task
+
+-------------------------------------
+(todotxt
+  (task
+    (word)))
+
+=====================================
+Multiple tasks
+=====================================
+task1
+task2
+
+-------------------------------------
+(todotxt
+  (task
+    (word))
+  (task
+    (word)))
+
+=====================================
+Complited task
+=====================================
+x task
+
+-------------------------------------
+(todotxt
+  (task
+    (done)
+    (word)))
+
+
+=====================================
+Prioritized task
+=====================================
+(A) task
+
+-------------------------------------
+(todotxt
+  (task
+    (priority)
+    (word)))
+
+=====================================
+Completed prioritized task
+=====================================
+x (A) task
+
+-------------------------------------
+(todotxt
+  (task
+    (done)
+    (priority)
+    (word)))
+
+=====================================
+Prioritized task with creation date
+=====================================
+(A) 2020-01-01 task
+
+-------------------------------------
+(todotxt
+  (task
+    (priority)
+    (creation_date)
+    (word)))
+
+=====================================
+Completed task with completion and creation date
+=====================================
+x 2020-01-01 2020-01-01 task
+
+-------------------------------------
+(todotxt
+  (task
+    (done)
+    (completion_date)
+    (creation_date)
+    (word)))
+
+=====================================
+A task with project, context, tag and priority
+=====================================
+(Z) @personal task +various stuff location:garage
+
+-------------------------------------
+(todotxt
+    (task
+    (priority)
+    (context)
+    (word)
+    (project)
+    (word)
+    (tag)))
+

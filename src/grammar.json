@@ -1,0 +1,169 @@
+{
+  "name": "todotxt",
+  "rules": {
+    "todotxt": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "task"
+      }
+    },
+    "task": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "done"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "priority"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "completion_date"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "creation_date"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_description"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_end_of_task"
+        }
+      ]
+    },
+    "done": {
+      "type": "PATTERN",
+      "value": "[xX]\\s"
+    },
+    "priority": {
+      "type": "PATTERN",
+      "value": "\\([A-Z]\\)\\s"
+    },
+    "_date": {
+      "type": "PATTERN",
+      "value": "\\d{4}-\\d{2}-\\d{2}\\s"
+    },
+    "completion_date": {
+      "type": "SYMBOL",
+      "name": "_date"
+    },
+    "creation_date": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SYMBOL",
+        "name": "_date"
+      }
+    },
+    "_description": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "project"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "context"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tag"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "word"
+        }
+      ]
+    },
+    "word": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "\\w+"
+      }
+    },
+    "project": {
+      "type": "PATTERN",
+      "value": "\\s?\\+\\w+\\s?"
+    },
+    "context": {
+      "type": "PATTERN",
+      "value": "\\s?@\\w+\\s?"
+    },
+    "tag": {
+      "type": "PATTERN",
+      "value": "\\w+:\\w+"
+    },
+    "_end_of_task": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\r"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\n"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\u2028"
+        }
+      ]
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
+
