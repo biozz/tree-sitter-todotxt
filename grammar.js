@@ -1,6 +1,15 @@
 module.exports = grammar({
   name: 'todotxt',
 
+  externals: $ => [
+    $._newline,
+    $._indent,
+    $._dedent,
+    $._string_start,
+    $._string_content,
+    $._string_end,
+  ],
+
   rules: {
     todotxt: $ => repeat($.task),
     task: $ => seq(
@@ -9,7 +18,7 @@ module.exports = grammar({
         optional($.completion_date),
         optional($.creation_date),
         repeat($._description),
-        $._end_of_task,
+        $._newline,
     ),
     done: $ => /[xX]\s/,
     priority: $ => /\([A-Z]\)\s/,
@@ -26,7 +35,6 @@ module.exports = grammar({
     project: $ => /\s?\+\w+\s?/,
     context: $ => /\s?@\w+\s?/,
     tag: $ => /\w+:\w+/,
-    _end_of_task: $ => choice(/\r/, /\n/, /\u2028/),
   }
 });
 
