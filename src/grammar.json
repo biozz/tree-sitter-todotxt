@@ -24,46 +24,10 @@
           ]
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "priority"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "completion_date"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "creation_date"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_description"
+            "name": "_content"
           }
         },
         {
@@ -74,29 +38,9 @@
     },
     "done": {
       "type": "PATTERN",
-      "value": "[xX]\\s"
+      "value": "x"
     },
-    "priority": {
-      "type": "PATTERN",
-      "value": "\\([A-Z]\\)\\s"
-    },
-    "_date": {
-      "type": "PATTERN",
-      "value": "\\d{4}-\\d{2}-\\d{2}\\s"
-    },
-    "completion_date": {
-      "type": "SYMBOL",
-      "name": "_date"
-    },
-    "creation_date": {
-      "type": "PREC",
-      "value": 2,
-      "content": {
-        "type": "SYMBOL",
-        "name": "_date"
-      }
-    },
-    "_description": {
+    "_content": {
       "type": "CHOICE",
       "members": [
         {
@@ -113,28 +57,61 @@
         },
         {
           "type": "SYMBOL",
-          "name": "word"
+          "name": "_word"
         }
       ]
     },
-    "word": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PATTERN",
-        "value": "\\w+"
-      }
+    "_newline": {
+      "type": "PATTERN",
+      "value": "\\n"
     },
     "project": {
       "type": "PATTERN",
-      "value": "\\s?\\+\\w+\\s?"
+      "value": "\\+\\w+"
     },
     "context": {
       "type": "PATTERN",
-      "value": "\\s?@\\w+\\s?"
+      "value": "@\\w+"
     },
     "tag": {
       "type": "PATTERN",
       "value": "\\w+:\\w+"
+    },
+    "priority": {
+      "type": "PATTERN",
+      "value": "\\([A-Z]\\)"
+    },
+    "_date": {
+      "type": "PATTERN",
+      "value": "\\d{4}-\\d{2}-\\d{2}"
+    },
+    "completion_date": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "SYMBOL",
+        "name": "_date"
+      }
+    },
+    "creation_date": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SYMBOL",
+        "name": "_date"
+      }
+    },
+    "_word": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": ".*"
+          }
+        ]
+      }
     }
   },
   "extras": [
@@ -145,32 +122,7 @@
   ],
   "conflicts": [],
   "precedences": [],
-  "externals": [
-    {
-      "type": "SYMBOL",
-      "name": "_newline"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "_indent"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "_dedent"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "_string_start"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "_string_content"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "_string_end"
-    }
-  ],
+  "externals": [],
   "inline": [],
   "supertypes": []
 }

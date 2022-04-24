@@ -6,3 +6,5 @@ generate:
 test: generate
 	tree-sitter test
 
+test-debug: generate
+	tree-sitter test --debug

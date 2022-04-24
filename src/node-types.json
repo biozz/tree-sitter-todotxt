@@ -1,15 +1,5 @@
 [
   {
-    "type": "completion_date",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "creation_date",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "task",
     "named": true,
     "fields": {},
@@ -18,23 +8,11 @@
       "required": false,
       "types": [
         {
-          "type": "completion_date",
-          "named": true
-        },
-        {
           "type": "context",
           "named": true
         },
         {
-          "type": "creation_date",
-          "named": true
-        },
-        {
           "type": "done",
-          "named": true
-        },
-        {
-          "type": "priority",
           "named": true
         },
         {
@@ -43,10 +21,6 @@
         },
         {
           "type": "tag",
-          "named": true
-        },
-        {
-          "type": "word",
           "named": true
         }
       ]
@@ -76,19 +50,11 @@
     "named": true
   },
   {
-    "type": "priority",
-    "named": true
-  },
-  {
     "type": "project",
     "named": true
   },
   {
     "type": "tag",
-    "named": true
-  },
-  {
-    "type": "word",
     "named": true
   }
 ]
