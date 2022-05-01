@@ -24,6 +24,42 @@
           ]
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "priority"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "completion_date"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "creation_date"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
@@ -61,10 +97,6 @@
         }
       ]
     },
-    "_newline": {
-      "type": "PATTERN",
-      "value": "\\n"
-    },
     "project": {
       "type": "PATTERN",
       "value": "\\+\\w+"
@@ -101,16 +133,24 @@
         "name": "_date"
       }
     },
+    "_newline": {
+      "type": "PATTERN",
+      "value": "\\n"
+    },
     "_word": {
       "type": "TOKEN",
       "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "PATTERN",
-            "value": ".*"
-          }
-        ]
+        "type": "PREC",
+        "value": -100,
+        "content": {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "\\S*"
+            }
+          ]
+        }
       }
     }
   },

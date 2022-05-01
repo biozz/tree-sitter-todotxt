@@ -1,7 +1,7 @@
 =================================================
 Simple task
 =================================================
-xtaskx
+task
 
 -------------------------------------------------
 (todotxt
@@ -15,7 +15,8 @@ task2
 -------------------------------------------------
 (todotxt
   (task)
-  (task))
+  (task)
+)
 
 =================================================
 Complited task
@@ -24,8 +25,8 @@ x task
 
 -------------------------------------------------
 (todotxt
-  (task
-    (done)))
+  (task (done))
+)
 
 =================================================
 Prioritized task
@@ -34,8 +35,8 @@ Prioritized task
 
 -------------------------------------------------
 (todotxt
-  (task
-    (priority)))
+  (task (priority))
+)
 
 =================================================
 Prioritized task with creation date
@@ -44,9 +45,8 @@ Prioritized task with creation date
 
 -------------------------------------------------
 (todotxt
-  (task
-    (priority)
-    (creation_date)))
+  (task (priority) (creation_date))
+)
 
 =================================================
 Completed task with completion and creation date
@@ -55,10 +55,28 @@ x 2020-01-01 2020-01-01 task
 
 -------------------------------------------------
 (todotxt
-  (task
-    (done)
-    (completion_date)
-    (creation_date)))
+  (task (done) (completion_date) (creation_date))
+)
+
+=================================================
+A task with project
+=================================================
+task +project hello
+
+-------------------------------------------------
+(todotxt
+  (task (project))
+)
+
+=================================================
+A task with context
+=================================================
+task @context
+
+-------------------------------------------------
+(todotxt
+  (task (context))
+)
 
 =================================================
 A task with project, context, tag and priority
@@ -67,9 +85,17 @@ A task with project, context, tag and priority
 
 -------------------------------------------------
 (todotxt
-    (task
-    (priority)
-    (context)
-    (project)
-    (tag)))
+  (task (priority) (context) (project) (tag))
+)
+
+=================================================
+Various tasks
+=================================================
+task1 hello
+задача2 привет https://google.com my:tag
+
+-------------------------------------------------
+(todotxt
+  (task)
+  (task (tag)))
 
